@@ -2,6 +2,35 @@
 
 {% block content %}
 
-<h1>Alcohol Calculator</h1> 
+<h1>Alcohol Calculator</h1>
+
+<form method="POST" action="/calculator.html">
+    <div class="form-group">
+        <label for="drink">Select a drink:</label>
+        <select name="drink" class="form-control">
+            <option value="beer">Beer</option>
+            <option value="wine">Wine</option>
+            <option value="spirit">Spirit</option>
+            <option value="cider">Cider</option>
+            <option value="champagne">Champagne</option>
+            <option value="alocpops">Alcopops</option>
+        </select>
+    </div>
+</form> 
+
+<form method="POST" action="/calculator.html">
+    <div class="form-group">
+        <label for="amount">Select an amount:</label>
+        <select name="amount" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form> 
 
 {% endblock %}
