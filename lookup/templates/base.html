@@ -25,9 +25,19 @@
         <a class="nav-link" href="{% url 'calculator' %}">Alcohol Calculator</a>
       </li>
 
+    {% if user.is_authenticated %}
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register_user' %}">Register</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{% url 'login' %}">Login</a>
       </li>
+    {% endif %}
       
       
     </ul>
@@ -41,11 +51,18 @@
 
   	<br/>
   	<div class="container">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+
 	  	{% block content %}
-
-
 		{% endblock %}
-	</div>
+	  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
